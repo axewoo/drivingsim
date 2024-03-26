@@ -1,6 +1,6 @@
 # This project is very much wip, i'm doing this as an end of year project in school.
 
-## Asking AI to do the work because existing solutions are not working
+## General Info about the project
 
 [Complete documentation of the serial connection and pinout](https://github.com/axewoo/drivingsim/blob/main/YMPC-SerialDocumentation)
 
@@ -29,8 +29,15 @@ Board pins - Motor driver serial pins and identification ; Pin function
 * PA1 - 20 PA+ ; Encoder signal output port A
 * PA2 - 15 PZ+ ; Encoder signal output port Z 
 
+##  Asking AI to do the work because existing solutions are not working
+ * [AI request](https://github.com/axewoo/drivingsim/blob/main/completerequest)
 
+* [Copilot](https://github.com/axewoo/drivingsim/blob/main/copilotawnser) 
+* [Devika](https://github.com/axewoo/drivingsim/blob/main/devikaawnser)
+* [Gemini/Bard](https://github.com/axewoo/drivingsim/blob/main/geminiawnser)
+* [GPT 3.5](https://github.com/axewoo/drivingsim/blob/main/gptawnser)
 
+  
 ## References :
 * [MMOSForceFeedBack](https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/) 
 * [Open FFBoard](https://hackaday.io/project/163904-open-ffboard)
