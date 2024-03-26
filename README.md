@@ -1,6 +1,6 @@
 # drivingsim
 Driving sim application and project.
-
+Asking AI to do the work because existing solutions are not working
 
 Programs and components : 
 Board : STM32F407VGT6-Discovery
