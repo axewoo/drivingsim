@@ -1,18 +1,22 @@
 # drivingsim
-Driving sim application and project.
-Asking AI to do the work because existing solutions are not working
+## Driving sim application and project.
+## Asking AI to do the work because existing solutions are not working
 
-Programs and components : 
-Board : STM32F407VGT6-Discovery
+
+
+### Programs and components : 
+Board : [STM32F407VGT6-Discovery](https://www.st.com/en/microcontrollers-microprocessors/stm32f407vg.html)
 Motor : Mige 130ST-M10015 6A 220V 10N.m
 Motor driver : YMPC AASD-30A-V6.3
 Connection to the board : Serial by the CN2 Port
 Program tried : MMOSFFB_Tool, FFBoard
-Firmware tried : MMOSFFB_Firmware, FFBoard
+Firmware tried : MMOSFFB_Firmware, FFBoard_Firmware
 
 
-Pins used on the board :
+
+### Pins used on the board :
 Board pins - Motor driver serial pins and identification ; Pin function
+![wiring](https://github.com/axewoo/drivingsim/assets/63790257/df14e593-b195-4299-8988-7d3c994cf6ba)
 
 GND - 10 COM ; Output control signal input ground
 GND - 13 AGND ; Input control signal input ground
@@ -23,3 +27,10 @@ PE11 - 7 SignIn2 ; Alarm reset
 PA0 - 18 PB+ ; Encoder signal output port B
 PA1 - 20 PA+ ; Encoder signal output port A
 PA2 - 15 PZ+ ; Encoder signal output port Z 
+
+
+
+## References :
+[MMOSForceFeedBack]([https://pages.github.com/](https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/)https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/) (In German).
+[Open FFBoard](https://hackaday.io/project/163904-open-ffboard)
+[DIY MMOS Project for original pinout and ideas](https://hackaday.io/project/168801-diy-mmos-ffb-stm32-and-servo-drive-servo-motor)
