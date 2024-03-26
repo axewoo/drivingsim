@@ -1,4 +1,4 @@
-#This project is very much wip, i'm doing this as an end of year project in school.
+# This project is very much wip, i'm doing this as an end of year project in school.
 
 ## Asking AI to do the work because existing solutions are not working
 
