@@ -1,5 +1,6 @@
-## Asking AI to do the work because existing solutions are not working
+# Asking AI to do the work because existing solutions are not working
 
+[Complete documentation of the serial connection and pinout](https://github.com/axewoo/drivingsim/blob/main/YMPC-SerialDocumentation)
 
 
 ### Programs and components : 
