@@ -1,0 +1,75 @@
+                                         | CN2 port Numbers |
+                                            TO THE BOARD 
+                               _________________________________________
+                               \     13 12 11 10 9 8 7 6 5 4 3 2 1     /
+                                \ 25 24 23 22 21 20 19 18 17 16 15 14 /
+                                 ------------------------------------- 
+
+
+                                       | CN2 port instructions |
+
+The control signal of power supply and ground
+DC12~24V - 9  | Input control signal input power
+COM      - 10 | Output control signal input ground
+
+Input command signal. The factory allinput signal port specified functions:
+SigIn1 - 6  | SRV-ON
+SigIn2 - 7  | Alarm reset
+SigIn3 - 21 | Zero position deviation
+SigIn4 - 8  | Zero speed clamp
+
+Output command signal. The factory all output signal port specified functions:
+SigOUT1 - 11 | Servo ready
+SigOUT2 - 23 | Alarm detection
+SigOUT3 - 12 | Positioningcomplete
+SigOUT4 - 24 | Zero speed
+
+Instruction pulse input port
+PV  - 2  | PV:open collector input power
+PP+ - 3  | Instruction pulse can be three different ways to input : 
+PP- - 14 | 1：Instruction direction and pulse input
+PD+ - 4  | 2： Clockwise or counterclockwise pulse input
+PD- - 5  | 3： Phase difference 90 degrees of orthogonal input
+
+Encoder signal (ABZ) output port. Through the parameter setting, AB signal separable frequency output and logic take back output.
+PA+ - 20 |
+PA- - 19 |
+PB+ - 18 |
+PB- - 17 |
+PZ+ - 15 |
+PZ- - 16 |
+OZ  - 22 |
+GND - 1  |
+
+Analog voltage input port. The speed or torque control, used for receiving the speed or torque command. 
+Voltage input range-10V~+10V。
+Vref - 25 |
+AGND - 13 |
+
+
+                                      | CN3 Encoder Interface |
+                                            TO THE MOTOR
+                                     _________________________
+                                     \    8 7 6 5 4 3 2 1    /
+                                      \ 15 14 13 12 11 10 9 /
+                                       ---------------------
+
+                                     | CN3 Port Instructions |
+
++5V - 8
+GND - 15
+A+  - 3
+A-  - 11
+B+  - 10
+B-  - 2
+Z+  - 1 
+Z-  - 9
+U+  - 6
+U-  - 7
+V+  - 5
+V-  - 13
+W+  - 12 
+W-  - 4
+PE  - 14
+
+                                        \ END OF DOCUMENT /
