@@ -1,4 +1,6 @@
-# Asking AI to do the work because existing solutions are not working
+#This project is very much wip, i'm doing this as an end of year project in school.
+
+## Asking AI to do the work because existing solutions are not working
 
 [Complete documentation of the serial connection and pinout](https://github.com/axewoo/drivingsim/blob/main/YMPC-SerialDocumentation)
 
