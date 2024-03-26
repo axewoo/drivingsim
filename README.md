@@ -1,13 +1,14 @@
 # drivingsim
 Driving sim application and project.
 
+
 Programs and components : 
 Board : STM32F407VGT6-Discovery
 Motor : Mige 130ST-M10015 6A 220V 10N.m
 Motor driver : YMPC AASD-30A-V6.3
 Connection to the board : Serial by the CN2 Port
-Program used : MMOSFFB_Tool
-Firmware used : MMOSFFB_Firmware
+Program tried : MMOSFFB_Tool, FFBoard
+Firmware tried : MMOSFFB_Firmware, FFBoard
 
 
 Pins used on the board :
