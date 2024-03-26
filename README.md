@@ -33,4 +33,4 @@ Board pins - Motor driver serial pins and identification ; Pin function
 ## References :
 * [MMOSForceFeedBack](https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/) 
 * [Open FFBoard](https://hackaday.io/project/163904-open-ffboard)
-* [DIY MMOS Project for original pinout and ideas](https://hackaday.io/project/168801-diy-mmos-ffb-stm32-and-servo-drive-servo-motor)
+* [DIY MMOS Project for original wiring and ideas](https://hackaday.io/project/168801-diy-mmos-ffb-stm32-and-servo-drive-servo-motor)
