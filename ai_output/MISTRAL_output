@@ -1,0 +1,66 @@
+To create a program in C that can read and send values to the motor driver using PWM, control the motor's position, and implement force feedback for driving simulators, you can follow these steps. This example assumes you are using the STM32CubeIDE for developing the firmware.
+
+1. Create a new project in STM32CubeIDE and configure the clock settings.
+2. Enable the required peripherals: GPIO, TIM (for PWM), USART, and USB.
+3. Configure the GPIO pins for the motor driver, encoder, and serial communication.
+4. Set up the TIM peripheral for generating PWM signals.
+5. Initialize the USART and USB communication.
+6. Implement the main control loop, including position reading, PWM control, and force feedback.
+7. (Optional) Create a separate application for receiving data on the Windows computer.
+
+Here's a basic outline of the C program:
+
+```c
+#include "main.h"
+
+// Global variables for position, PWM, and force feedback
+uint16_t motor_position;
+uint16_t pwm_value;
+int16_t force_feedback;
+
+// USART and USB communication handling functions
+void USART_Communication_Handle(void);
+void USB_Communication_Handle(void);
+
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();
+    MX_GPIO_Init();
+    MX_TIM_PWM_Init();
+    MX_USART_UART_Init();
+    MX_USB_DEVICE_Init();
+
+    while (1)
+    {
+        // Read motor position
+        motor_position = read_encoder();
+
+        // Calculate PWM value based on the motor position
+        pwm_value = calculate_pwm(motor_position);
+
+        // Generate PWM signal for the motor driver
+        set_pwm_value(pwm_value);
+
+        // Calculate force feedback value
+        force_feedback = calculate_force_feedback(motor_position);
+
+        // Apply force feedback to the motor
+        apply_force_feedback(force_feedback);
+
+        // Handle USART communication
+        USART_Communication_Handle();
+
+        // Handle USB communication
+        USB_Communication_Handle();
+    }
+}
+
+// Implement the required functions for reading encoder, calculating PWM,
+// applying force feedback, and handling communication.
+```
+
+For the separate application on the Windows computer to receive data via USB, you can use libraries like libusb to create a simple program that reads the data sent by the STM32 board.
+
+|||||||||||||||||||||||||||||||||||V2
+
