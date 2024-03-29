@@ -64,3 +64,178 @@ For the separate application on the Windows computer to receive data via USB, yo
 
 |||||||||||||||||||||||||||||||||||V2
 
+Sure, here's a combined version of the two programs. Please note that this is a basic structure and you may need to adjust it according to your specific requirements. The force feedback function is a placeholder and you will need to implement it according to your specific force feedback algorithm.
+
+```c
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
+#include "stdio.h"
+#include "stdint.h"
+
+// Define pins used
+#define GND_COM_Pin GPIO_PIN_10
+#define GND_COM_GPIO_Port GPIOB
+#define GND_AGND_Pin GPIO_PIN_13
+#define GND_AGND_GPIO_Port GPIOB
+#define SignIn1_Pin GPIO_PIN_6
+#define SignIn1_GPIO_Port GPIOB
+#define DC12_24V_Pin GPIO_PIN_9
+#define DC12_24V_GPIO_Port GPIOA
+#define Vref_Pin GPIO_PIN_9
+#define Vref_GPIO_Port GPIOE
+#define SignIn2_Pin GPIO_PIN_11
+#define SignIn2_GPIO_Port GPIOE
+#define Encoder_B_Pin GPIO_PIN_0
+#define Encoder_B_GPIO_Port GPIOA
+#define Encoder_A_Pin GPIO_PIN_1
+#define Encoder_A_GPIO_Port GPIOA
+#define Encoder_Z_Pin GPIO_PIN_2
+#define Encoder_Z_GPIO_Port GPIOA
+
+// Function prototypes
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void init_serial();
+void init_pwm();
+void init_encoder();
+void init_usb_usart();
+uint16_t read_encoder_position();
+uint16_t calculate_force_feedback(uint16_t position);
+void send_data_to_computer(uint16_t position, uint16_t force_feedback);
+
+int main(void) {
+  HAL_Init();
+  init_serial();
+  init_pwm();
+  init_encoder();
+  init_usb_usart();
+
+  while (1) {
+    // Read encoder values
+    uint16_t position = read_encoder_position();
+
+    // Calculate force feedback based on motor position
+    uint16_t force_feedback = calculate_force_feedback(position);
+
+    // Implement your logic to control the motor using sensor values and control signals
+    // Send commands to the motor driver accordingly
+
+    // Example: If SignIn1 is high, enable motor, else disable motor
+    if(HAL_GPIO_ReadPin(SignIn1_GPIO_Port, SignIn1_Pin) == GPIO_PIN_SET) {
+      // Enable motor
+      // Send command to motor driver
+    } else {
+      // Disable motor
+      // Send command to motor driver
+    }
+
+    // Send position and force feedback to computer via USB and USART
+    send_data_to_computer(position, force_feedback);
+
+    HAL_Delay(100); // Adjust delay as needed based on your application requirements
+  }
+}
+
+// External interrupt callback function
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  // Handle interrupt if needed
+}
+
+void init_serial() {
+    // Initialize serial communication with motor driver
+    // Configure USART pins and baud rate
+}
+
+void init_pwm() {
+    // Initialize PWM to control motor speed
+    // Configure PWM pins and frequency
+}
+
+void init_encoder() {
+    // Initialize encoder interface
+    // Configure encoder pins and interrupt
+}
+
+void init_usb_usart() {
+    // Initialize USB and USART for communication with the computer
+    // Configure USART pins and baud rate
+}
+
+uint16_t read_encoder_position() {
+    // Read encoder signals and calculate motor position
+    // Return motor position
+}
+
+uint16_t calculate_force_feedback(uint16_t position) {
+    // Calculate force feedback based on motor position
+    // Return force feedback value
+}
+
+void send_data_to_computer(uint16_t position, uint16_t force_feedback) {
+    // Send position and force feedback values to computer via USB and USART
+}
+```
+
+This program initializes the serial communication, PWM, encoder, and USB-USART. It then enters an infinite loop where it reads the encoder position, calculates the force feedback, controls the motor based on the sensor values and control signals, and sends the position and force feedback values to a computer via USB and USART.
+
+
+|||||||||||||||||||| MISTRAL V2 (again)
+
+Sure, I can help you merge these two programs and add the required functionality. Here's a basic outline of how you might structure your code:
+
+```c
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
+#include "stdio.h"
+#include "stdint.h"
+
+// Pin definitions...
+
+// Function prototypes...
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void init_serial();
+void init_pwm();
+void init_encoder();
+void init_usb_usart();
+uint16_t read_encoder_position();
+uint16_t calculate_force_feedback(uint16_t position);
+void send_data_to_computer(uint16_t position, uint16_t force_feedback);
+void control_motor(uint16_t force_feedback);
+
+int main(void) {
+  HAL_Init();
+  init_serial();
+  init_pwm();
+  init_encoder();
+  init_usb_usart();
+
+  while (1) {
+    uint16_t position = read_encoder_position();
+    uint16_t force_feedback = calculate_force_feedback(position);
+    control_motor(force_feedback);
+    send_data_to_computer(position, force_feedback);
+    HAL_Delay(10); // Adjust delay as needed
+  }
+}
+
+// Implementation of init_serial, init_pwm, init_encoder, init_usb_usart...
+
+uint16_t read_encoder_position() {
+  // Read encoder signals and calculate motor position
+}
+
+uint16_t calculate_force_feedback(uint16_t position) {
+  // Calculate force feedback based on motor position
+}
+
+void send_data_to_computer(uint16_t position, uint16_t force_feedback) {
+  // Send position and force feedback values to computer via USB and USART
+}
+
+void control_motor(uint16_t force_feedback) {
+  // Implement your logic to control the motor using force feedback
+  // Send commands to the motor driver accordingly
+}
+```
+
+This code is a basic structure and you'll need to fill in the details based on your specific requirements. For example, the `control_motor` function should implement the logic to control the motor based on the force
