@@ -30,13 +30,10 @@ Board pins - Motor driver serial pins and identification ; Pin function
 * PA2 - 15 PZ+ ; Encoder signal output port Z 
 
 ##  Asking AI to do the work because existing solutions are not working
- * [AI request](https://github.com/axewoo/drivingsim/blob/main/completerequest)
-
-* [Copilot](https://github.com/axewoo/drivingsim/blob/main/copilotawnser) 
-* [Devika](https://github.com/axewoo/drivingsim/blob/main/devikaawnser)
-* [Gemini/Bard](https://github.com/axewoo/drivingsim/blob/main/geminiawnser)
-* [GPT 3.5](https://github.com/axewoo/drivingsim/blob/main/gptawnser)
-* [Claude](https://github.com/axewoo/drivingsim/blob/main/claudeawnser)
+ * [AI_Requests folder](https://github.com/axewoo/drivingsim/tree/main/requests)
+ 
+ * [AI_Output folder](https://github.com/axewoo/drivingsim/tree/main/ai_output)
+  
   
 ## References :
 * [MMOSForceFeedBack](https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/) 
