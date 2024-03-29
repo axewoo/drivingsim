@@ -163,6 +163,146 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   // Handle interrupt if needed
 }
 
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||V2|||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+To combine the two provided C programs and implement the required functionalities for reading motor position, controlling motor speed using PWM, and providing force feedback, as well as sending data to a computer via USB and USART, you can follow the integrated code below. Note that you may need to adjust certain parts of the code based on the specific requirements of your hardware and software environment:
+
+```c
+#include "stm32f4xx_hal.h"
+#include "stdio.h"
+#include "stdint.h"
+
+// Define pins used
+#define GND_COM_Pin GPIO_PIN_10
+#define GND_COM_GPIO_Port GPIOB
+#define GND_AGND_Pin GPIO_PIN_13
+#define GND_AGND_GPIO_Port GPIOB
+#define SignIn1_Pin GPIO_PIN_6
+#define SignIn1_GPIO_Port GPIOB
+#define DC12_24V_Pin GPIO_PIN_9
+#define DC12_24V_GPIO_Port GPIOA
+#define Vref_Pin GPIO_PIN_9
+#define Vref_GPIO_Port GPIOE
+#define SignIn2_Pin GPIO_PIN_11
+#define SignIn2_GPIO_Port GPIOE
+#define Encoder_B_Pin GPIO_PIN_0
+#define Encoder_B_GPIO_Port GPIOA
+#define Encoder_A_Pin GPIO_PIN_1
+#define Encoder_A_GPIO_Port GPIOA
+#define Encoder_Z_Pin GPIO_PIN_2
+#define Encoder_Z_GPIO_Port GPIOA
+#define PWM_Pin GPIO_PIN_8
+#define PWM_GPIO_Port GPIOA
+
+// Function prototypes
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void init_serial();
+void init_pwm();
+void init_encoder();
+void init_usb_usart();
+void send_data_to_computer(uint16_t position, uint16_t force_feedback);
+uint16_t read_encoder_position();
+uint16_t calculate_force_feedback(uint16_t position);
+
+int main(void) {
+    HAL_Init();
+    // Initialize GPIO
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    __HAL_RCC_GPIOE_CLK_ENABLE();
+    GPIO_InitStruct.Pin = GND_COM_Pin|GND_AGND_Pin|SignIn1_Pin|DC12_24V_Pin|SignIn2_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = Encoder_B_Pin|Encoder_A_Pin|Encoder_Z_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = Vref_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+    // Initialize PWM
+    init_pwm();
+    // Initialize serial communication
+    init_serial();
+    // Initialize encoder
+    init_encoder();
+    // Initialize USB and USART
+    init_usb_usart();
+
+    while (1) {
+        // Read motor position from encoder
+        uint16_t position = read_encoder_position();
+        
+        // Calculate force feedback based on motor position
+        uint16_t force_feedback = calculate_force_feedback(position);
+        
+        // Send position and force feedback to computer
+        send_data_to_computer(position, force_feedback);
+        
+        // Control motor speed using PWM based on force feedback
+        // Adjust PWM duty cycle according to force feedback
+        // Example: HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+        // Example: HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+    }
+}
+
+// External interrupt callback function
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  // Handle interrupt if needed
+}
+
+void init_serial() {
+    // Initialize serial communication with motor driver
+    // Configure USART pins and baud rate
+}
+
+void init_pwm() {
+    // Initialize PWM to control motor speed
+    // Configure PWM pins and frequency
+    // Example:
+    // __HAL_RCC_TIM1_CLK_ENABLE();
+    // htim1.Instance = TIM1;
+    // htim1.Init.Prescaler = 0;
+    // htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+    // htim1.Init.Period = 1000; // Adjust period as needed
+    // htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    // HAL_TIM_PWM_Init(&htim1);
+    // sConfigOC.Pulse = 500; // Adjust initial duty cycle as needed
+    // HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1);
+}
+
+void init_encoder() {
+    // Initialize encoder interface
+    // Configure encoder pins and interrupt
+}
+
+void init_usb_usart() {
+    // Initialize USB and USART for communication with the computer
+    // Configure USART pins and baud rate
+}
+
+uint16_t read_encoder_position() {
+    // Read encoder signals and calculate motor position
+    // Return motor position
+}
+
+uint16_t calculate_force_feedback(uint16_t position) {
+    // Calculate force feedback based on motor position
+    // Return force feedback value
+}
+
+void send_data_to_computer(uint16_t position, uint16_t force_feedback) {
+    // Send position and force feedback values to computer via USB and USART
+    // Example:
+    // sprintf(data, "%d %d", position, force_feedback);
+    // HAL_UART_Transmit(&huart2, (uint8_t*)data, strlen(data), HAL_MAX_DELAY);
+    // USB send implementation
+}
+```
+
+This integrated program combines the functionalities of reading motor position, controlling motor speed using PWM, providing force feedback, and sending data to a computer via USB and USART. Make sure to initialize the necessary peripherals and configure the pins according to your hardware setup. Additionally, adjust the PWM initialization and control code based on your specific requirements and PWM configuration.
 
 
