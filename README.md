@@ -35,7 +35,15 @@ Board pins - Motor driver serial pins and identification ; Pin function
  * [AI_Output folder](https://github.com/axewoo/drivingsim/tree/main/ai_output)
   
  * [SbS_engines](https://github.com/axewoo/drivingsim/tree/main/sbs_engines)
-  
+
+### Vesc Info (maybe not used)
+
+ * [Vesc_Firmware / bldc ](https://github.com/vedderb/bldc)
+
+ * [Vesc_Tool](https://github.com/vedderb/vesc_tool)
+
+ * [Vesc_bms_Firmware](https://github.com/vedderb/vesc_bms_fw)
+   
 ## References :
 * [MMOSForceFeedBack](https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/) 
 * [Open FFBoard](https://hackaday.io/project/163904-open-ffboard)
