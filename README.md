@@ -44,8 +44,6 @@ Board pins - Motor driver serial pins and identification ; Pin function
 
  * [Vesc_Tool](https://github.com/vedderb/vesc_tool)
 
- * [Vesc_bms_Firmware](https://github.com/vedderb/vesc_bms_fw)
-
 
 ## References :
 * [MMOSForceFeedBack](https://forum.virtualracing.org/threads/diy-usb-force-feedback-controller.92420/) 
